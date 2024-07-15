@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu portal de notícias</title>
+    <link rel="stylesheet" href="./main.css" />
+    <script>
+        function gerarDataAleatoria() {
+            // Obter a data atual
+            var dataAtual = new Date();
+
+            // Definir um intervalo para gerar uma data aleatória dentro dos últimos 30 dias
+            var diasAtras = Math.floor(Math.random() * 30) + 1;
+            var dataAleatoria = new Date(dataAtual.getTime() - diasAtras * 24 * 60 * 60 * 1000);
+
+            // Formatar a data para o formato dd/mm/aaaa
+            var dia = dataAleatoria.getDate();
+            var mes = dataAleatoria.getMonth() + 1; // Os meses começam de 0
+            var ano = dataAleatoria.getFullYear();
+
+            // Formatar para dois dígitos se necessário
+            if (dia < 10) {
+                dia = '0' + dia;
+            }
+            if (mes < 10) {
+                mes = '0' + mes;
+            }
+
+            return dia + '/' + mes + '/' + ano;
+        }
+
+        function gerarHoraAleatoria() {
+            // Gerar horas entre 00 e 23
+            var hora = Math.floor(Math.random() * 24);
+
+            // Gerar minutos entre 00 e 59
+            var minutos = Math.floor(Math.random() * 60);
+
+            // Formatar para dois dígitos se necessário
+            if (hora < 10) {
+                hora = '0' + hora;
+            }
+            if (minutos < 10) {
+                minutos = '0' + minutos;
+            }
+
+            return hora + ':' + minutos;
+        }
+
+        // Aplicar datas e horas aleatórias às notícias
+        document.addEventListener('DOMContentLoaded', function() {
+            var creationDates = document.querySelectorAll('.creation-date');
+            creationDates.forEach(function(dateElement) {
+                dateElement.textContent = gerarDataAleatoria() + ' às ' + gerarHoraAleatoria();
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Meu portal de notícias</h1>
+            <nav>
+                <ul>
+                    <li><a href="#sports" title="Ir para a seção de esportes">Esportes</a></li>
+                    <li><a href="#economy" title="Ir para a seção de economia">Economia</a></li>
+                    <li><a href="#gardening" title="Ir para a seção de jardinagem">Jardinagem</a></li>
+                    <li><a href="#astrophysics" title="Ir para a seção de astrofísica">Astrofísica</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section id="sports">
+        <div class="container">
+            <h2>Esportes</h2>
+            <div class="articles">
+                <article>
+                    <img src="./imagens/futebol.jpg" alt="Bola de futebol no gramado" />
+                    <header>
+                        <time class="creation-date">13/07/2022 às 12:35</time>
+                    </header>
+                    <h3>Grande clássico na noite de hoje</h3>
+                    <p>Hoje à noite teremos um grande clássico entre os maiores times da liga. A expectativa é alta e os torcedores estão ansiosos para ver quem sairá vitorioso.</p>
+                    <a href="#" title="Leia a notícia completa">Ler mais</a>
+                </article>
+                <article>
+                    <img src="./imagens/futebol-americano.jpg" alt="Jogador de futebol americano correndo com a bola na mão" />
+                    <header>
+                        <time class="creation-date">13/07/2022 às 12:35</time>
+                    </header>
+                    <h3>Noite do Superbowl</h3>
+                    <p>A grande final do Superbowl promete ser um espetáculo. Os dois times estão preparados para uma disputa acirrada, e os fãs aguardam com grande expectativa.</p>
+                    <a href="#" title="Leia a notícia completa">Ler mais</a>
+                </article>
+                <article>
+                    <img src="./imagens/basquete.jpg" alt="Vista aérea de uma quadra de basquete" />
+                    <header>
+                        <time class="creation-date">13/07/2022 às 12:35</time>
+                    </header>
+                    <h3>Notícia sobre a NBA</h3>
+                    <p>A temporada da NBA está a todo vapor, com jogos emocionantes e grandes atuações dos principais jogadores. Confira os destaques da semana.</p>
+                    <a href="#" title="Leia a notícia completa">Ler mais</a>
+                </article>
+            </div>
+        </div>
+    </section>
+    <section id="economy">
+        <div class="container">
+            <h2>Economia</h2>
+            <div class="articles">
+                <article>
+                    <img src="./imagens/dolares.jpg" alt="Muitos dólares" />
+                    <header>
+                        <time class="creation-date">13/07/2022 às 12:35</time>
+                    </header>
+                    <h3>Dólar em alta de 0.50%</h3>
+                    <p>O dólar apresentou uma alta de 0.50% nas últimas 24 horas, influenciado por dados econômicos positivos nos Estados Unidos.</p>
+                    <a href="#" title="Leia a notícia completa">Ler mais</a>
+                </article>
+                <article>
+                    <img src="./imagens/euro.jpg" alt="Várias notas de euro" />
+                    <header>
+                        <time class="creation-date">13/07/2022 às 12:35</time>
+                    </header>
+                    <h3>Euro em queda de 0.40%</h3>
+                    <p>O euro sofreu uma queda de 0.40% em relação ao dólar, devido a incertezas políticas na Zona do Euro.</p>
+                    <a href="#" title="Leia a notícia completa">Ler mais</a>
+                </article>
+                <article>
+                    <img src="./imagens/petroleo.jpg" alt="Extração de petróleo" />
+                    <header>
+                        <time class="creation-date">13/07/2022 às 12:35</time>
+                    </header>
+                    <h3>Alta no preço do barril do petróleo</h3>
+                    <p>O preço do barril de petróleo subiu significativamente nos últimos dias, impulsionado por uma demanda crescente e problemas de oferta.</p>
+                    <a href="#" title="Leia a notícia completa">Ler mais</a>
+                </article>
+            </div>
+        </div>
+    </section>
+    <section id="gardening">
+        <div class="container">
+            <h2>Jardinagem</h2>
+            <div class="articles">
+                <article>
+                    <img src="./imagens/jardinagem1.jpeg" alt="Jardim florido" />
+                    <header>
+                        <time class="creation-date">13/07/2022 às 12:35</time>
+                    </header>
+                    <h3>Dicas para um jardim florido</h3>
+                    <p>Aprenda como manter seu jardim sempre florido com dicas de especialistas. Saiba quais são as melhores plantas para cada estação.</p>
+                    <a href="#" title="Leia a notícia completa">Ler mais</a>
+                </article>
+                <article>
+                    <img src="./imagens/jardinagem2.jpeg" alt="Horta em casa" />
+                    <header>
+                        <time class="creation-date">13/07/2022 às 12:35</time>
+                    </header>
+                    <h3>Como começar uma horta em casa</h3>
+                    <p>Descubra os primeiros passos para iniciar uma horta em casa e ter sempre à mão temperos frescos e saudáveis.</p>
+                    <a href="#" title="Leia a notícia completa">Ler mais</a>
+                </article>
+                <article>
+                    <img src="./imagens/jardinagem3.jpeg" alt="Plantas suculentas" />
+                    <header>
+                        <time class="creation-date">13/07/2022 às 12:35</time>
+                    </header>
+                    <h3>Cuidados com plantas suculentas</h3>
+                    <p>Conheça os cuidados essenciais para manter suas plantas suculentas saudáveis e bonitas durante todo o ano.</p>
+                    <a href="#" title="Leia a notícia completa">Ler mais</a>
+                </article>
+            </div>
+        </div>
+    </section>
+    <section id="astrophysics">
+        <div class="container">
+            <h2>Astrofísica</h2>
+            <div class="articles">
+                <article>
+                        <img src="./imagens/astrofisica1.jpg" alt="Descrição da imagem">
+                    <header>
+                        <time class="creation-date">13/07/2022 às 12:35</time>
+                    </header>
+                    <h3>Descobertas recentes sobre galáxias</h3>
+                    <p>Novas observações revelam descobertas emocionantes sobre a formação e evolução das galáxias no universo.</p>
+                    <a href="#" title="Leia a notícia completa">Ler mais</a>
+                </article>
+                <article>
+                    <img src="./imagens/astrofisica2.jpeg" alt="Astrônomo observando o céu" />
+                    <header>
+                        <time class="creation-date">13/07/2022 às 12:35</time>
+                    </header>
+                    <h3>Astronomia amadora e suas contribuições</h3>
+                    <p>Explore como astrônomos amadores estão contribuindo significativamente para a ciência da astrofísica com suas observações e descobertas.</p>
+                    <a href="#" title="Leia a notícia completa">Ler mais</a>
+                </article>
+                <article>
+                    <img src="./imagens/astrofisica3.jpeg" alt="Estrelas no céu noturno" />
+                    <header>
+                        <time class="creation-date">13/07/2022 às 12:35</time>
+                    </header>
+                    <h3>A beleza das estrelas no céu noturno</h3>
+                    <p>Contemple a beleza e a fascinação das estrelas em uma noite estrelada e saiba mais sobre sua importância na astrofísica moderna.</p>
+                    <a href="#" title="Leia a notícia completa">Ler mais</a>
+                </article>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
